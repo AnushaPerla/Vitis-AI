@@ -10,10 +10,10 @@ The Vitis AI Library is a set of high-level libraries and APIs built for efficie
 
 The Vitis AI Library provides an easy-to-use and unified interface by encapsulating many efficient and high-quality neural networks. This simplifies the use of deep-learning neural networks, even for users without knowledge of deep-learning or FPGAs. The Vitis AI Library allows users to focus more on the development of their applications, rather than the underlying hardware.
 
-For edge users, click 
-[Quick Start For Edge](#quick-start-for-edge) to get started quickly. 
+For edge users, click
+[Quick Start For Edge](#quick-start-for-edge) to get started quickly.
 
-For cloud users, click 
+For cloud users, click
 [Quick Start For Alveo](#quick-start-for-alveo) to get started quickly.
 
 ## Key Features And Enhancements in 1.3 Release
@@ -104,13 +104,13 @@ Vitis_AI_Library
 ### Setting Up the Host
 1. Download the [sdk-2020.2.0.0.sh](https://www.xilinx.com/bin/public/openDownload?filename=sdk-2020.2.0.0.sh)
 
-2. Install the cross-compilation system environment, follow the prompts to install. 
+2. Install the cross-compilation system environment, follow the prompts to install.
 
 **Please install it on your local host linux system, not in the docker system.**
 ```
 ./sdk-2020.2.0.0.sh
 ```
-Note that the `~/petalinux_sdk` path is recommended for the installation. Regardless of the path you choose for the installation, make sure the path has read-write permissions. 
+Note that the `~/petalinux_sdk` path is recommended for the installation. Regardless of the path you choose for the installation, make sure the path has read-write permissions.
 Here we install it under `~/petalinux_sdk`.
 
 3. When the installation is complete, follow the prompts and execute the following command.
@@ -128,11 +128,11 @@ tar -xzvf vitis_ai_2020.2-r1.3.0.tar.gz -C ~/petalinux_sdk/sysroots/aarch64-xili
 ```
 cd ~/Vitis-AI/demo/Vitis-AI-Library/samples/facedetect
 bash -x build.sh
-```	
+```
 
 6. To modify the library source code, view and modify them under `~/Vitis-AI/tools/Vitis-AI-Library`.
 	Before compiling the AI libraries, please confirm the compiled output path. The default output path is : `$HOME/build`.
-	If you want to change the default output path, please modify the `build_dir_default` in cmake.sh. 
+	If you want to change the default output path, please modify the `build_dir_default` in cmake.sh.
 	Execute the following command to build the libraries all at once.
 ```
 cd ~/Vitis-AI/tools/Vitis-AI-Library
@@ -148,11 +148,11 @@ steps.**
 
 1. Installing a Board Image.
 	* Download the SD card system image files from the following links:  
-	
+
 		[ZCU102](https://www.xilinx.com/bin/public/openDownload?filename=xilinx-zcu102-dpu-v2020.2-v1.3.0.img.gz)  
-	
+
 		[ZCU104](https://www.xilinx.com/bin/public/openDownload?filename=xilinx-zcu104-dpu-v2020.2-v1.3.0.img.gz)  
-	
+
       	Note: The version of the board image should be 2020.2 or above.
 	* Use Etcher software to burn the image file onto the SD card.
 	* Insert the SD card with the image into the destination board.
@@ -161,24 +161,24 @@ steps.**
 	You can now operate on the board using SSH.
 
 2. (Optional) Running `zynqmp_dpu_optimize.sh` to optimize the board setting.
-	
+
 	The script runs automatically by default after the board boots up with the official image.
 	But you can also download the `dpu_sw_optimize.tar.gz` from [here](../../dsa/DPU-TRD/app/dpu_sw_optimize.tar.gz).
 	```
 	cd ~/dpu_sw_optimize/zynqmp/
 	./zynqmp_dpu_optimize.sh
-	```	
+	```
 
 3. (Optional) How to update Vitis AI Model and install it separately. 	
 
-	For each model, there will be a yaml file which is used for describe all the details about the model. 
+	For each model, there will be a yaml file which is used for describe all the details about the model.
 	In the yaml, you will find the model's download links for different platforms. Please choose the corresponding model and download it.  
 	Click [Xilinx AI Model Zoo](../../models/AI-Model-Zoo/model-list) to view all the models.
 	* Download the model according to the model's yaml file. Take `densebox_320_320` of ZCU102 as an example.
 	```
 	  wget https://www.xilinx.com/bin/public/openDownload?filename=densebox_320_320-zcu102_zcu104-r1.3.0.tar.gz -O densebox_320_320-zcu102_zcu104-r1.3.0.tar.gz
-	```	
-	* Copy the downloaded file to the board using scp with the following command. 
+	```
+	* Copy the downloaded file to the board using scp with the following command.
 	```
 	  scp densebox_320_320-zcu102_zcu104-r1.3.0.tar.gz root@IP_OF_BOARD:~/
 	```
@@ -188,11 +188,11 @@ steps.**
 	  cp densebox_320_320 /usr/share/vitis_ai_library/models -r
 	```
 
-4. (Optional) How to update Vitis AI Runtime and install them separately. 
+4. (Optional) How to update Vitis AI Runtime and install them separately.
 
 	If you want to update the Vitis AI Runtime or install them to your custom board image, follow these steps.
 	* Download the [Vitis AI Runtime 1.3.0](https://www.xilinx.com/bin/public/openDownload?filename=vitis-ai-runtime-1.3.0.tar.gz).  
-	
+
 	* Untar the runtime packet and copy the following folder to the board using scp.
 	```
 	tar -xzvf vitis-ai-runtime-1.3.0.tar.gz
@@ -204,10 +204,10 @@ steps.**
 	cd centos
 	bash setup.sh
 	```
-	 	  
+
 ### Running Vitis AI Library Examples
 
-1. Download the [vitis_ai_library_r1.3.x_images.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz) and 
+1. Download the [vitis_ai_library_r1.3.x_images.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz) and
 the [vitis_ai_library_r1.3.x_video.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz). Copy them from host to the target using scp with the following command.
 ```
 [Host]$scp vitis_ai_library_r1.3.x_images.tar.gz root@IP_OF_BOARD:~/
@@ -236,8 +236,8 @@ Video_input.mp4: The video file's name for the input. The user needs to prepare 
 -t: <num_of_threads>
 ```
 
-Note that, for examples with video input, only `webm` and `raw` format are supported by default with the official system image. 
-If you want to support video data in other formats, you need to install the relevant packages on the system. 
+Note that, for examples with video input, only `webm` and `raw` format are supported by default with the official system image.
+If you want to support video data in other formats, you need to install the relevant packages on the system.
 
 6. To test the program with a USB camera as input, run the following command:
 ```
@@ -283,7 +283,7 @@ sudo service xbutler restart
 ```
 
 3. Select the model for your platform.  
-	For each model, there will be a yaml file which is used for describe all the details about the model. 
+	For each model, there will be a yaml file which is used for describe all the details about the model.
 	In the yaml, you will find the model's download links for different platforms. Please choose the corresponding model and download it.  
 	Click [Xilinx AI Model Zoo](../../models/AI-Model-Zoo/model-list) to view all the models.
 
@@ -299,7 +299,7 @@ sudo service xbutler restart
 	If the `/usr/share/vitis_ai_library/models` folder does not exist, create it first.
 	```
 	  sudo mkdir /usr/share/vitis_ai_library/models
-	```	
+	```
 	Then install the model package.
 	```
 	  tar -xzvf densebox_320_320-u50-r1.3.0.tar.gz
@@ -310,8 +310,8 @@ sudo service xbutler restart
 	  tar -xzvf densebox_320_320-u50-u50lv-u280-v3me-r1.3.0.tar.gz
 	  sudo cp densebox_320_320 /usr/share/vitis_ai_library/models -r
 	```
-	  
-**Note that different alveo cards correspond to different model files, which cannot be used alternately.** 
+
+**Note that different alveo cards correspond to different model files, which cannot be used alternately.**
 
 4. To compile the AI Library sample, take `classification` as an example, execute the following command.
 ```
@@ -321,7 +321,7 @@ bash -x build.sh
 
 5. To modify the library source code, view and modify them under `/workspace/Vitis-AI/tools/Vitis-AI-Library`.
 	Before compiling the AI libraries, please confirm the compiled output path. The default output path is : `$HOME/build`.
-	If you want to change the default output path, please modify the `build_dir_default` in cmake.sh. 
+	If you want to change the default output path, please modify the `build_dir_default` in cmake.sh.
 	Execute the following command to build the libraries all at once.
 ```
 cd /workspace/tools/Vitis-AI-Library
@@ -329,11 +329,11 @@ cd /workspace/tools/Vitis-AI-Library
 ```
 
 ### Running Vitis AI Library Examples for U50/U50lv/U280
-Suppose you have downloaded `Vitis-AI`, entered `Vitis-AI` directory, and then started Docker. 
-Thus, `Vitis-AI-Libray` examples are located in the path of `/workspace/demo/Vitis-AI-Library/` in the docker system. 
+Suppose you have downloaded `Vitis-AI`, entered `Vitis-AI` directory, and then started Docker.
+Thus, `Vitis-AI-Libray` examples are located in the path of `/workspace/demo/Vitis-AI-Library/` in the docker system.
 
 **`/workspace/demo/Vitis-AI-Library/` is the path for the following example.**
- 
+
 If you encounter any path errors in running examples, check to see if you follow the steps above.
 
 1. Download the [vitis_ai_library_r1.3.x_images.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz) and [vitis_ai_library_r1.3.x_video.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz) packages and untar them.
@@ -374,7 +374,7 @@ Video_input.mp4: The video file's name for input. The user needs to prepare the 
 
 :pushpin: **Note:** Please make sure you are already inside Vitis-AI docker
 
-2. Activate conda environment. 
+2. Activate conda environment.
 ```sh
 conda activate vitis-ai-caffe
 ```
@@ -401,9 +401,17 @@ This will generate AI libraries and executable files to under `build_dir_default
 $wget -O vai_lib_u200_u250_models.tar.gz https://www.xilinx.com/bin/public/openDownload?filename=vai_lib_u200_u250_models.tar.gz
 $sudo tar -xvf vai_lib_u200_u250_models.tar.gz --absolute-names
 ```
-:pushpin: **Note:** All models will download to `/usr/share/vitis_ai_library/models` directory. Currently supported networks for `DPUCADX8G` are classification, facedetect, facelandmark, reid and yolov3. And currently supported networks for `DPUCADF8H` are `tf_inceptionv1_imagenet_224_224_3G_1.3` and `tf_resnetv1_50_imagenet_224_224_6.97G_1.3`.
+:pushpin: **Note:** All models will download to `/usr/share/vitis_ai_library/models` directory. Currently supported networks for `DPUCADX8G` are classification, facedetect, facelandmark, reid and yolov3.
 
-2. To download a minimal validation set for [Imagenet2012](http://www.image-net.org/challenges/LSVRC/2012) using [Collective Knowledge (CK)](https://github.com/ctuning) refer to alveo examples [README](../../examples/DPU-CADX8G/caffe/README.md#setup).
+2. Download the [vitis_ai_library_r1.3.x_images.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz) and [vitis_ai_library_r1.3.x_video.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz) packages and untar them.
+```
+cd /workspace
+wget https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz -O vitis_ai_library_r1.3.0_images.tar.gz
+wget https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz -O vitis_ai_library_r1.3.0_video.tar.gz
+tar -xzvf vitis_ai_library_r1.3.0_images.tar.gz -C demo/Vitis-AI-Library/
+tar -xzvf vitis_ai_library_r1.3.0_video.tar.gz -C demo/Vitis-AI-Library/
+```
+
 3. Setup the environment.
 ```
 $source ${VAI_HOME}/setup/alveo/u200_u250/overlaybins/setup.sh
@@ -413,22 +421,32 @@ $export LD_LIBRARY_PATH=<vitis-ai-library lib path>:$LD_LIBRARY_PATH
 
 4. Run the classification image test example.
 ```
-$HOME/build/build.${taget_info}/${project_name}/test_classification <model_dir> <img_path>
+<vitis-ai-library build path>/Vitis-AI-Library/classification/test_classification <model_dir> <img_path>
 
 Example:
 $~/build/build.Ubuntu.18.04.x86_64.Release/Vitis-AI-Library/classification/test_classification inception_v1 <img_path>
 ```
+:pushpin: **Note:** The default build path for vitis-ai-library is `$HOME/build/<target>/Vitis-AI-Library/`.
+
 ### Running Vitis AI Library Examples on Alveo-U200/Alveo-U250 with `DPUCADF8H`:
 1. Download and untar the model package.
 ```
 $wget -O inception_v1_tf-u200-u250-r1.3.0.tar.gz https://www.xilinx.com/bin/public/openDownload?filename=inception_v1_tf-u200-u250-r1.3.0.tar.gz
 $wget -O resnet_v1_50_tf-u200-u250-r1.3.0.tar.gz https://www.xilinx.com/bin/public/openDownload?filename=resnet_v1_50_tf-u200-u250-r1.3.0.tar.gz
 $tar -xvf inception_v1_tf-u200-u250-r1.3.0.tar.gz
-$tar -xvf resnet_v1_50_tf-u200-u250-r1.3.0.tar.gz 
+$tar -xvf resnet_v1_50_tf-u200-u250-r1.3.0.tar.gz
 ```
 :pushpin: **Note:** Currently supported networks for `DPUCADF8H` are `tf_inceptionv1_imagenet_224_224_3G_1.3` and `tf_resnetv1_50_imagenet_224_224_6.97G_1.3`.
 
-2. To download a minimal validation set for [Imagenet2012](http://www.image-net.org/challenges/LSVRC/2012) using [Collective Knowledge (CK)](https://github.com/ctuning) refer to alveo examples [README](../../examples/DPU-CADX8G/caffe/README.md#setup).
+2. Download the [vitis_ai_library_r1.3.x_images.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz) and [vitis_ai_library_r1.3.x_video.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz) packages and untar them.
+```
+cd /workspace
+wget https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_images.tar.gz -O vitis_ai_library_r1.3.0_images.tar.gz
+wget https://www.xilinx.com/bin/public/openDownload?filename=vitis_ai_library_r1.3.0_video.tar.gz -O vitis_ai_library_r1.3.0_video.tar.gz
+tar -xzvf vitis_ai_library_r1.3.0_images.tar.gz -C demo/Vitis-AI-Library/
+tar -xzvf vitis_ai_library_r1.3.0_video.tar.gz -C demo/Vitis-AI-Library/
+```
+
 3. Setup the environment.
 ```sh
 $source ${VAI_HOME}/setup/alveo/u200_u250/overlaybins/setup.sh
@@ -444,11 +462,12 @@ $export XLNX_VART_FIRMWARE=/opt/xilinx/overlaybins/dpuv3int8/dpdpuv3_wrapper.hw.
 
 4. Run the classification image test example.
 ```
-$HOME/build/build.${taget_info}/${project_name}/test_classification <model_dir> <img_path>
+<vitis-ai-library build path>/Vitis-AI-Library/classification/test_classification <model_dir> <img_path>
 
 Example:
 $~/build/build.Ubuntu.18.04.x86_64.Release/Vitis-AI-Library/classification/test_classification inception_v1_tf <img_path>
 ```
+:pushpin: **Note:** The default build path for vitis-ai-library is `$HOME/build/<target>/Vitis-AI-Library/`.
 
 ## Reference
 For more information, please refer to [vitis-ai-library-user-guide](https://www.xilinx.com/support/documentation/sw_manuals/vitis_ai/1_3/ug1354-xilinx-ai-sdk.pdf).
